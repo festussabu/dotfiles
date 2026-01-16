@@ -25,8 +25,9 @@ for_window [window_role="pop-up"] floating enable
 client.focused     #88c0d0 #2e3440 #eceff4 #88c0d0
 client.unfocused   #4c566a #2e3440 #d8dee9 #4c566a
 #modified
-exec --no-startup-id feh --bg-scale ~/backgrounds/nice-blue-background.png
+exec --no-startup-id feh --bg-scale ~/backgrounds/archlinux.jpg
 exec --no-startup-id picom
+exec --no-startup-id xbindkeys
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 # Font for window titles. Will also be used by the bar unless a different font
@@ -39,6 +40,7 @@ font pango:Meslo LGM Nerd Font 14
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
 bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+bindsym $mod+x exec i3lock
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart

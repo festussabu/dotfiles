@@ -69,6 +69,7 @@ return {
 			cmd = { "typescript-language-server", "--stdio" },
 			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 			root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+			capabilities = capabilities,
 		}
 
 		-- Configure HTML
@@ -76,6 +77,14 @@ return {
 			cmd = { "vscode-html-language-server", "--stdio" },
 			filetypes = { "html" },
 			root_markers = { ".git", "package.json" },
+			init_options = {
+				embeddedLanguages = {
+					css = true,
+					javascript = true,
+				},
+				provideFormatter = true,
+			},
+			capabilities = capabilities,
 		}
 
 		-- Configure CSS
