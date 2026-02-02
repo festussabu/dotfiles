@@ -28,7 +28,7 @@ client.unfocused   #4c566a #2e3440 #d8dee9 #4c566a
 exec --no-startup-id feh --bg-scale ~/backgrounds/archlinux.jpg
 exec --no-startup-id picom
 exec --no-startup-id xbindkeys
-exec --no-startup-id ~/.config/i3/auto_detect_display.sh
+exec_always --no-startup-id ~/.config/i3/auto_detect_display.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 # Font for window titles. Will also be used by the bar unless a different font
@@ -64,6 +64,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+#britghnessctl
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-   
 #rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -location 2 -yoffset 30
 bindsym $mod+Tab exec --no-startup-id rofi -show window -show-icons -location 2 -yoffset 30
