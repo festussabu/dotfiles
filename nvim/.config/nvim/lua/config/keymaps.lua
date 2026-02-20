@@ -35,5 +35,5 @@ k.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
 -- RUN PYTHON FILE
 -----------------------------------------------------------
 k.set("n", "<space><space>x", "<cmd>!python3 %<CR>")
-k.set("n", "<space><space>g", "<cmd>!g++ -std=c++17 %<CR>")
-k.set("n", "<space><space>c", "<cmd>!./a.out <CR>")
+k.set("n", "<space><space>g", "<cmd>!clear && g++ -std=c++17 *.cpp<CR>")
+k.set("n", "<space><space>c", "<cmd>!./a.out<CR>")
