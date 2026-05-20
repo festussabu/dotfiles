@@ -7,8 +7,14 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
     
     cmp.setup({
+      completion = {
+        autocomplete = { cmp.TriggerEvent.TextChanged },
+        completeopt = "menu,menuone,noselect",
+      },
       snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
       mapping = cmp.mapping.preset.insert({
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-Space>"] = cmp.mapping.complete(),

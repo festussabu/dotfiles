@@ -4,8 +4,9 @@ return {
 	config = function()
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "pyright", "ts_ls", "html", "cssls", "jsonls", "clangd" },
+			ensure_installed = { "lua_ls", "pyright", "django-language-server", "ts_ls", "html", "cssls", "jsonls", "clangd" },
 			automatic_installation = true,
+			automatic_enable = false,
 		})
 		require("mason-tool-installer").setup({
 			ensure_installed = { "prettier", "stylua", "black", "eslint_d", "clang-format" },

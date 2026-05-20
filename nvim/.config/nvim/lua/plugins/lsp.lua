@@ -20,6 +20,12 @@ return {
 		vim.lsp.config("*", {
 			capabilities = capabilities,
 		})
+		-- Configure Django templates
+		vim.lsp.config.djls = {
+			cmd = { "djls", "serve" },
+			filetypes = { "htmldjango" },
+			root_markers = { "manage.py", "pyproject.toml", ".git" },
+		}
 		-- Configure C/C++
 		vim.lsp.config.clangd = {
 			cmd = { "clangd", "--background-index", "--clang-tidy" },
@@ -61,7 +67,17 @@ return {
 		vim.lsp.config.pyright = {
 			cmd = { "pyright-langserver", "--stdio" },
 			filetypes = { "python" },
-			root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" },
+			root_markers = { "manage.py", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" },
+			settings = {
+				python = {
+					analysis = {
+						autoImportCompletions = true,
+						autoSearchPaths = true,
+						diagnosticMode = "openFilesOnly",
+						useLibraryCodeForTypes = true,
+					},
+				},
+			},
 		}
 
 		-- Configure TypeScript/JavaScript
@@ -102,6 +118,6 @@ return {
 		}
 
 		-- Enable servers
-		vim.lsp.enable({ "lua_ls", "pyright", "ts_ls", "html", "cssls", "jsonls", "clangd" })
+		vim.lsp.enable({ "lua_ls", "pyright", "djls", "ts_ls", "html", "cssls", "jsonls", "clangd" })
 	end,
 }

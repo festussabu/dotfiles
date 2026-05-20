@@ -22,9 +22,9 @@ k.set("n", "<C-l>", "<C-w>l")
 -----------------------------------------------------------
 -- TELESCOPE
 -----------------------------------------------------------
-k.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
-k.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
-k.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
+k.set("n", "<leader>f", "<cmd>Telescope find_files<CR>")
+-- k.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+-- k.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
 
 -----------------------------------------------------------
 -- LAZYGIT
@@ -35,5 +35,5 @@ k.set("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
 -- RUN PYTHON FILE
 -----------------------------------------------------------
 k.set("n", "<space><space>x", "<cmd>!python3 %<CR>")
-k.set("n", "<space><space>g", "<cmd>!clear && g++ -std=c++17 *.cpp<CR>")
-k.set("n", "<space><space>c", "<cmd>!./a.out<CR>")
+k.set("n", "<leader>r", "<cmd>MoltenEvaluateLine<CR>")
+k.set("v", "<leader>r", ":<C-u>MoltenEvaluateOperator<CR>")
