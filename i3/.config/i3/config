@@ -27,8 +27,26 @@ client.unfocused   #4c566a #2e3440 #d8dee9 #4c566a
 #modified
 exec_always --no-startup-id feh --bg-fill ~/backgrounds/archlinux.jpg
 exec_always --no-startup-id picom -b
+exec_always --no-startup-id sh -c "sleep 2 && xmodmap ~/.Xmodmap"
 exec --no-startup-id xbindkeys
 exec --no-startup-id setxkbmap -option ctrl:swapcaps
+
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+
+# Assign apps to workspaces
+assign [class="Google-chrome"]    $ws1
+assign [class="Alacritty"]        $ws2
+assign [class="Openboard"]        $ws3
+
+# Launch on startup
+exec --no-startup-id google-chrome-stable
+exec --no-startup-id alacritty
+exec --no-startup-id i3-msg 'workspace 3; exec openboard'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 2'
+
 # exec_always --no-startup-id ~/.config/i3/auto_detect_display.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
