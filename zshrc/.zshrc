@@ -123,3 +123,4 @@ zle -N fzf-cd-widget  # register the widget
 
 # 3. Bind the key
 bindkey '^G' fzf-cd-widget
+export PATH="$HOME/.local/bin:$PATH"

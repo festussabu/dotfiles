@@ -1,9 +1,17 @@
 #!/bin/sh
 
-if xrandr | grep "HDMI-1 connected"; then
-  xrandr --output eDP-1 --off --output HDMI-1 --auto --primary
-elif xrandr | grep "DP-1 connected"; then
-  xrandr --output eDP-1 --off --output DP-1 --auto --primary
+internal=eDP-1
+
+# first connected external output (HDMI-1, DP-1, DP-2, ... whatever it shows up as)
+external=$(xrandr | awk -v skip="$internal" '$2 == "connected" && $1 != skip {print $1; exit}')
+
+if [ -n "$external" ]; then
+  xrandr --output "$external" --auto --primary --output "$internal" --off
 else
-  xrandr --output eDP-1 --auto --primary --output DP-1 --off --output HDMI-1 --off 
+  xrandr --output "$internal" --auto --primary
 fi
+
+# turn off anything that was unplugged but still has an active mode
+xrandr | awk '$2 == "disconnected" && $3 ~ /^[0-9]+x[0-9]+\+/ {print $1}' | while read -r out; do
+  xrandr --output "$out" --off
+done
