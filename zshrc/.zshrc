@@ -105,6 +105,8 @@ source $ZSH/oh-my-zsh.sh
 #
 #
 
+alias lc75='leetctl tui -S leetcode-75'
+
 fzf_cd() {
   local dir
   dir=$(find ~ -type d \
@@ -124,3 +126,5 @@ zle -N fzf-cd-widget  # register the widget
 # 3. Bind the key
 bindkey '^G' fzf-cd-widget
 export PATH="$HOME/.local/bin:$PATH"
+
+. "$HOME/.cargo/env"

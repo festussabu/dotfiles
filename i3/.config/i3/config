@@ -26,11 +26,10 @@ client.focused     #88c0d0 #2e3440 #eceff4 #88c0d0
 client.unfocused   #4c566a #2e3440 #d8dee9 #4c566a
 #modified
 exec_always --no-startup-id feh --bg-fill ~/backgrounds/archlinux.jpg
-exec_always --no-startup-id picom -b
+# exec_always --no-startup-id picom -b
 exec --no-startup-id setxkbmap -option ctrl:swapcaps
 
-exec_always --no-startup-id ~/.config/i3/auto_detect_display.sh
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 bindsym Print exec --no-startup-id sh -c 'mkdir -p "$HOME/Pictures/screenshots" && maim "$HOME/Pictures/screenshots/shot_$(date +%Y%m%d_%H%M%S).png"'
 bindsym $mod+o exec --no-startup-id sh -c 'mkdir -p "$HOME/Pictures/screenshots" && file="$HOME/Pictures/screenshots/shot_$(date +%Y%m%d_%H%M%S).png" && maim -s "$file" && xclip -selection clipboard -t image/png -i "$file"'
