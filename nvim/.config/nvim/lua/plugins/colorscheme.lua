@@ -1,11 +1,12 @@
 return {
-	"folke/tokyonight.nvim",
+	"Mofiqul/vscode.nvim",
 	priority = 1000,
 	config = function()
-		require("tokyonight").setup({
-			style = "night", -- night | storm | moon | day
+		require("vscode").setup({
+			style = "dark", -- dark | light
 			transparent = false,
+			italic_comments = true,
 		})
-		vim.cmd.colorscheme("tokyonight-night")
+		vim.cmd.colorscheme("vscode")
 	end,
 }
