@@ -27,7 +27,7 @@ client.unfocused   #4c566a #2e3440 #d8dee9 #4c566a
 #modified
 exec_always --no-startup-id feh --bg-fill ~/backgrounds/archlinux.jpg
 # exec_always --no-startup-id picom -b
-exec --no-startup-id setxkbmap -option ctrl:swapcaps
+# exec --no-startup-id setxkbmap -option ctrl:swapcaps
 
 exec --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
