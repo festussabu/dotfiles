@@ -1,0 +1,87 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 20,
+  "spacing": 0,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+    "sway/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "backlight",
+    "memory",
+    "cpu",
+    "network",
+    "battery",
+    "tray"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true
+  },
+  "sway/mode": {
+    "format": "{}"
+  },
+  "sway/window": {
+    "max-length": 60
+  },
+  "clock": {
+    "format": "\uf017  {:%a %d %b  %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "\uf026  muted",
+    "format-icons": [
+      "\uf026",
+      "\uf027",
+      "\uf028"
+    ],
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "\uf185  {percent}%",
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "memory": {
+    "interval": 5,
+    "format": "\uf2db  {percentage}%"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "\uf0e4  {usage}%"
+  },
+  "network": {
+    "format-wifi": "\uf1eb  {essid}",
+    "format-ethernet": "\uf0e8  {ifname}",
+    "format-disconnected": "\uf071  offline",
+    "tooltip-format": "{ifname}  {ipaddr}  {signalStrength}%"
+  },
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "\uf0e7 {icon}  {capacity}%",
+    "format-plugged": "\uf1e6  {capacity}%",
+    "format-icons": [
+      "\uf244",
+      "\uf243",
+      "\uf242",
+      "\uf241",
+      "\uf240"
+    ]
+  },
+  "tray": {
+    "spacing": 8
+  }
+}
