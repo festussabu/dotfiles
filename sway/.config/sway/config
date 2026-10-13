@@ -32,6 +32,10 @@ output * bg ~/backgrounds/archlinux.jpg fill
 bar {
   swaybar_command waybar
 }
+input type:touchpad {
+  natural_scroll enabled
+  tap enabled
+}
 exec kanshi
 exec autotiling
 # bindsym Print exec --no-startup-id sh -c 'mkdir -p "$HOME/Pictures/screenshots" && maim "$HOME/Pictures/screenshots/shot_$(date +%Y%m%d_%H%M%S).png"'
